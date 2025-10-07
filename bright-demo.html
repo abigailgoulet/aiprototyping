@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Brightspace UI CDN demo</title>
+    <style>
+      body{font-family:system-ui,Segoe UI,Roboto,Arial;background:#081223;color:#e6eef8;display:flex;align-items:center;justify-content:center;height:100vh}
+      .wrap{max-width:780px;width:100%;padding:32px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.04));box-shadow:0 8px 30px rgba(2,6,23,0.7)}
+      header{display:flex;gap:12px;align-items:center;margin-bottom:18px}
+      h1{font-size:18px;margin:0}
+      .row{display:flex;gap:12px;align-items:center}
+      .note{color:#94a3b8;font-size:13px;margin-top:12px}
+    </style>
+    <script type="module">
+      // Import only the components used in this demo via unpkg ESM
+      import 'https://unpkg.com/@brightspace-ui/core/components/button/button.js?module';
+      import 'https://unpkg.com/@brightspace-ui/core/components/alert/alert.js?module';
+      import 'https://unpkg.com/@brightspace-ui/core/components/card/card.js?module';
+    </script>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>Brightspace UI — CDN quick demo</h1>
+      </header>
+
+      <section class="row">
+        <d2l-button id="btn">Click me</d2l-button>
+        <d2l-button class="btn-ghost">Ghost</d2l-button>
+      </section>
+
+      <section style="margin-top:18px">
+        <d2l-alert type="info">This alert is loaded from the Brightspace UI package over the CDN.</d2l-alert>
+      </section>
+
+      <section style="margin-top:18px">
+        <d2l-card>
+          <div slot="header">Card header</div>
+          <div>Card content — use Brightspace UI components in your prototypes quickly via the CDN.</div>
+        </d2l-card>
+      </section>
+
+      <div class="note">Serve this file with a local HTTP server (python3 -m http.server) so module imports load correctly.</div>
+    </div>
+
+    <script>
+      // small behavior example
+      const btn = document.getElementById('btn');
+      btn.addEventListener('click', () => alert('Button clicked'));
+    </script>
+  </body>
+</html>
